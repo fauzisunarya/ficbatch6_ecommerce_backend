@@ -1,0 +1,331 @@
+{
+	"info": {
+		"_postman_id": "c6b528e7-5d4d-49e0-b5f2-98e52d85e5a4",
+		"name": "strapi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11699270"
+	},
+	"item": [
+		{
+			"name": "FIC BATCH 6",
+			"item": [
+				{
+					"name": "Users",
+					"item": [
+						{
+							"name": "Add Users",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"rino\",\n    \"password\": \"123456\",\n    \"email\": \"rino@gmail.com\",\n    \"username\": \"rino\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:1337/api/auth/local/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "1337",
+									"path": [
+										"api",
+										"auth",
+										"local",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Signin Users",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"identifier\": \"rino\",\n    \"password\": \"123456\"\n  \n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:1337/api/auth/local",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "1337",
+									"path": [
+										"api",
+										"auth",
+										"local"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Product",
+					"item": [
+						{
+							"name": "Show Product",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:1337/api/products?populate=*",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "1337",
+									"path": [
+										"api",
+										"products"
+									],
+									"query": [
+										{
+											"key": "populate",
+											"value": "*"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Product",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"data\": \n        {\n                \"name\": \"sepatu\",\n                \"description\": \"sepatu ini bagus cocok untuk menanjak\",\n                \"quantity\": 540,\n                \"price\": 120000,\n                \"inStock\": true,\n                \"image\": \"google.com\",\n                \"distributor\": \"allstar\"\n\n            }\n        }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:1337/api/products",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "1337",
+									"path": [
+										"api",
+										"products"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Product",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"data\": \n        {\n                \"name\": \"sepatu adidas\",\n                \"description\": \"sepatu ini bagus cocok untuk sekolah\",\n                \"quantity\": 1111,\n                \"price\": 220000,\n                \"inStock\": true,\n                \"image\": \"google2.com\",\n                \"distributor\": \"adidas\"\n\n            }\n        }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:1337/api/products/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "1337",
+									"path": [
+										"api",
+										"products",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Upload Image",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjg5MzA1Njc2LCJleHAiOjE2OTE4OTc2NzZ9.SQQyFakQ-IxQvx046jF_mG9iP9QbDWFTuaPXa4RQ12c",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "files",
+											"type": "file",
+											"src": "/Users/fauzi_sunarya/Downloads/Passphoto_Sistem Informatika.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:1337/api/upload",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "1337",
+									"path": [
+										"api",
+										"upload"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Product",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:1337/api/products/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "1337",
+									"path": [
+										"api",
+										"products",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Show Product By Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:1337/api/products/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "1337",
+									"path": [
+										"api",
+										"products",
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Order",
+					"item": [
+						{
+							"name": "Add Orders",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjg5NDkyNTAxLCJleHAiOjE2OTIwODQ1MDF9.rt46bx8THrpo7yfGS4cbWh3J0c9RZETfwKtg8txJrU0",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"data\":{\n    \"item\":[\n        {\n            \"id\":1,\n            \"productName\": \"Sepatu Adidas\",\n            \"price\": 600000,\n            \"qty\": 1\n        },\n        {\n            \"id\":2,\n            \"productName\": \"Kaos Adidas\",\n            \"price\": 150000,\n            \"qty\": 3\n        }\n    ],\n    \"totalPrice\": 1072000,\n    \"deliveryAddress\": \"Jalan Keting 8\",\n    \"courierName\": \"JNE\",\n    \"shippingCost\": 5000,\n    \"statusOrder\": \"waitingPayment\"\n}\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:1337/api/orders",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "1337",
+									"path": [
+										"api",
+										"orders"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Payment Callback",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjg5NDkyNTAxLCJleHAiOjE2OTIwODQ1MDF9.rt46bx8THrpo7yfGS4cbWh3J0c9RZETfwKtg8txJrU0",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"va_numbers\": [\n        {\n            \"va_number\": \"39611484673\",\n            \"bank\": \"bca\"\n        }\n    ],\n    \"transaction_time\": \"2023-07-16 15:34:03\",\n    \"transaction_status\": \"settlement\",\n    \"transaction_id\": \"4197351d-bf18-4374-b66a-7a3ba24dc6bb\",\n    \"status_message\": \"midtrans payment notification\",\n    \"status_code\": \"200\",\n    \"signature_key\": \"3515824f7acfc5db6aadae4ba7516ec713a01b42d9cc49c6335763db9f55485c36080fcd776aec0f05bad954b275b270fbf118dc3c3a36b4759f02f9640866bd\",\n    \"settlement_time\": \"2023-07-16 15:34:14\",\n    \"payment_type\": \"bank_transfer\",\n    \"payment_amounts\": [],\n    \"order_id\": \"5\",\n    \"merchant_id\": \"G660139611\",\n    \"gross_amount\": \"1072000.00\",\n    \"fraud_status\": \"accept\",\n    \"expiry_time\": \"2023-07-17 15:34:03\",\n    \"currency\": \"IDR\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:1337/api/payment-callbacks",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "1337",
+									"path": [
+										"api",
+										"payment-callbacks"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
